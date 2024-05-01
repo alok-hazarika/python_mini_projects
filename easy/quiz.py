@@ -12,11 +12,13 @@ def initialise():
         initialise()
 
 def quiz_run():
+    count = 0
     score = 0
     answer = input("What stands for CPU? ").lower()
     if answer == "central processing unit":
         print("Correct!")
         score += 3
+        count += 1
     else:
         print("Incorrect!")
         score -= 1
@@ -25,6 +27,7 @@ def quiz_run():
     if answer == "graphics processing unit":
         print("Correct!")
         score += 3
+        count += 1
     else:
         print("Incorrect!")
         score -= 1
@@ -33,6 +36,7 @@ def quiz_run():
     if answer == "random access memory":
         print("Correct!")
         score += 3
+        count += 1
     else:
         print("Incorrect!")
         score -= 1
@@ -41,6 +45,7 @@ def quiz_run():
     if answer == "power supply unit":
         print("Correct!")
         score += 3
+        count += 1
     else:
         print("Incorrect!")
         score -= 1
@@ -49,9 +54,12 @@ def quiz_run():
     if answer == "c":
         print("Correct")
         score += 3
+        count += 1
     else:
         print("Incorrect")
         score -= 1
+    percentage = (count/5) * 100
+    print("You got ", count,"answers correct out of 5 which is ", percentage,"%")
     print("Your score is :", score)
 
 initialise()
