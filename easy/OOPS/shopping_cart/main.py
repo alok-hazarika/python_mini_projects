@@ -9,11 +9,7 @@ class ShoppingCart:
         self.total = 0
     
     def add_items(self, item_name, qty, price):
-        counter = False
-        for i in range(len(self.item_name)):
-            if self.item_name[i] == item_name:
-                counter = True
-        if counter == True:
+        if item_name in self.item_name:
             item_idx = self.item_name.index(item_name)
             self.qty[item_idx] = self.qty[item_idx] + qty
             self.price[item_idx] = self.price[item_idx] + (qty * price)
@@ -38,9 +34,9 @@ class ShoppingCart:
         return self.total
     
     def view_cart(self):
-        return self.item_name, self.qty, self.price
+        for i in range(len(self.item_name)):
+            print(f"Item - {self.item_name[i]}, Quantity - {self.qty[i]} and total cost {self.price[i]}")
     
-        
     
 
 my_cart = ShoppingCart()
@@ -49,7 +45,8 @@ my_cart.add_items("Apple", 1, 120)
 my_cart.add_items("Kiwi", 4, 160)
 my_cart.remove_items("Kiwi", 2, 160)
 my_cart.add_items("Orange", 1, 120)
-my_cart.add_items("Apple", 2, 100)
+my_cart.add_items("Apple", 2, 120)
+my_cart.add_items("Banana", 12  , 6)
 
 print(my_cart.calculate_total())
-print(my_cart.view_cart())
+my_cart.view_cart()
